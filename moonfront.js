@@ -4,13 +4,35 @@ let illo = new Zdog.Illustration({
   element: '.zdog-canvas',
 });
 
-// add circle
-new Zdog.Ellipse({
+let anchor = new Zdog.Anchor({
   addTo: illo,
-  diameter: 80,
+});
+
+// add circle
+new Zdog.Shape({
+  addTo: illo,
+  stroke: 80,
+  color: '#00f',
+  translate: { z: 40 },
+});
+
+// add circle
+new Zdog.Shape({
+  addTo: illo,
   stroke: 20,
-  color: '#636',
+  color: '#fff',
+  translate: { z: -40 },
 });
 
 // update & render
 illo.updateRenderGraph();
+
+function animate() {
+  // rotate illo each frame
+  illo.rotate.y += 0.03;
+  illo.updateRenderGraph();
+  // animate next frame
+  requestAnimationFrame( animate );
+}
+// start animation
+animate();
