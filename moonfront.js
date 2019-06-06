@@ -13,7 +13,7 @@ let illo = new Zdog.Illustration({
   // set canvas with selector
   element: '.zdog-canvas',
   dragRotate: true,
-  rotate: { x: - TAU / 4, z : TAU / 2}
+  rotate: { x:  TAU / 4, y: TAU / 2, z : TAU / 2}
 });
 
 console.log(altitude);
@@ -25,36 +25,6 @@ let moonAnchor = new Zdog.Anchor({
 });
 
 console.log(moonAnchor)
-
-// new Zdog.Shape({
-//   addTo: illo,
-//   path: [
-//     { y: 0 }, // start at 1st point
-//     { y:  -90 }, // line to 2nd point
-//   ],
-//   stroke: 10,
-//   color: 'red',
-// });
-
-// new Zdog.Shape({
-//   addTo: illo,
-//   path: [
-//     { x: 0 }, // start at 1st point
-//     { x:  -90 }, // line to 2nd point
-//   ],
-//   stroke: 10,
-//   color: 'green',
-// });
-
-// new Zdog.Shape({
-//   addTo: illo,
-//   path: [
-//     { z: 0 }, // start at 1st point
-//     { z:  90 }, // line to 2nd point
-//   ],
-//   stroke: 10,
-//   color: 'blue',
-// });
 
 let can = new Zdog.Cylinder({
   addTo: illo,
