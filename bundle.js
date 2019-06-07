@@ -4,9 +4,22 @@ console.log(SunCalc.getMoonPosition(new Date(), 20.1225, -98.736111));
 
 const azimuth = SunCalc.getMoonPosition(new Date(), 20.1225, -98.736111).azimuth;
 const altitude = SunCalc.getMoonPosition(new Date(), 20.1225, -98.736111).altitude;
+const riseTime = SunCalc.getMoonTimes(new Date(), 20.1225, -98.736111).rise;
+const setTime = SunCalc.getMoonTimes(new Date(), 20.1225, -98.736111).set;
+
+console.log(SunCalc.getMoonTimes(new Date(), 20.1225, -98.736111));
 
 document.getElementById('azimuth').innerText = azimuth;
 document.getElementById('altitude').innerText = altitude;
+
+if (riseTime !== undefined){
+  document.getElementById('rise').innerText = `Rise: ${riseTime}`;
+}
+
+if (setTime !== undefined){
+  document.getElementById('set').innerText = `Set: ${setTime}`;
+}
+
 
 const TAU = Zdog.TAU;
 // create illo
@@ -16,9 +29,6 @@ let illo = new Zdog.Illustration({
   dragRotate: true,
   rotate: { x:  TAU / 4, y: TAU / 2, z : TAU / 2}
 });
-
-console.log(altitude);
-console.log(azimuth);
 
 let moonAnchor = new Zdog.Anchor({
   addTo: illo,
@@ -44,6 +54,17 @@ let north = new Zdog.Shape({
     ],
   stroke: 1,
   color: "green",
+});
+
+let northSymbol = new Zdog.Shape({
+  addTo: can,
+  path: [
+    { y: 100 },
+    { y: 120 },
+    { x: 20, y: 100 }
+  ],
+  stroke: 2,
+  color: "white",
 });
 
 let moon = new Zdog.Shape({
